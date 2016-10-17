@@ -1,0 +1,48 @@
+#!/bin/bash
+
+	echo Welcome to CISC 220 Racing Arena 
+
+	echo User 1 press 1 to move forward, User 2 press 2, User 3 press 3
+
+user1count=0
+user2count=0
+user3count=0
+
+user1distance=""
+user2distance=""
+user3distance=""
+
+while (($user1count != 40 && $user2count != 40 && $user3count != 40)) ; do
+
+        read -n1 input
+	
+	if (($input==1)) ; then
+		user1count=$(($user1count+1))
+		user1distance=$user1distance~
+
+	elif (($input==2)) ; then
+		user2count=$(($user2count+1))
+		user2distance=$user2distance~ 
+
+	elif (($input==3)) ; then
+		user3count=$(($user3count+1))
+		user3distance=$user3distance~
+
+	fi
+
+	clear
+	echo "$user1distance""|->"'# Lane 1 #'
+	echo "$user2distance""|->"'# Lane 2 #'
+	echo "$user3distance""|->"'# Lane 3 #'
+
+done
+
+	if (("$user1count"==40)) ; then
+		echo 'Player 1 WINS'
+
+	elif (("$user2count"==40)) ; then
+		echo 'Player 2 WINS'
+
+	elif (("$user3count"==40)) ; then
+		echo 'Player 3 WINS'
+  fi
