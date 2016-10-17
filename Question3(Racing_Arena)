@@ -31,7 +31,7 @@ while (($user1count != 40 && $user2count != 40 && $user3count != 40)) ; do
 
 	elif (($input==2)) ; then
 		user2count=$(($user2count+1))
-		user2distance=$user2distance~ 
+		user2distance=$user2distance~
 		user2space=${user2space%?}
 
 	elif (($input==3)) ; then
