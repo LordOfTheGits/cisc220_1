@@ -16,6 +16,10 @@ user3space="                                        "
 
 	echo User 1 press 1 to move forward, User 2 press 2 and User 3 press 3
 
+	echo "$user1distance""|->""$user1space"'# Lane 1 #'
+	echo "$user2distance""|->""$user2space"'# Lane 2 #'
+	echo "$user3distance""|->""$user3space"'# Lane 3 #'
+
 while (($user1count != 40 && $user2count != 40 && $user3count != 40)) ; do
 
         read -s -n1 input
@@ -52,4 +56,4 @@ done
 
 	elif (("$user3count"==40)) ; then
 		echo 'Player 3 WINS'
-        fi
+	fi
