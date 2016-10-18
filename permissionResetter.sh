@@ -42,3 +42,31 @@ if [[ $1 == '-r' ]]; then
 		i=$((i+1))
 	done
 fi
+
+if [[ $1 == "-s" ]] ; then
+
+    old=$2
+    changed=newFile
+    ls -l * | awk '{print $1" " $9}' > $changed
+    rows=$(wc $changed | awk '{print $1}')
+
+    for (( x=1 ; x<=rows ; x++)) ; do
+
+        line1=$(head -n$x $old | tail -n1)
+        file=${line1:11}#file name
+        line1=${line1:0:10}#old permissions of the file
+        line2=$(head -n$x $changed | tail -n1)
+        line2=${line2:0:10}#current permissions of the file
+
+        #this if statement isn't working for some reason, all comparision are considered true
+        if [[ ! line1 == line2 ]] ; then
+
+            if (( x == 1 )) ; then
+                echo "Old            Current        File"
+            fi
+
+        echo "$line1     $line2     $file"
+        fi
+
+    done
+fi
