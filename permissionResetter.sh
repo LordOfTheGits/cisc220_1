@@ -51,10 +51,10 @@ elif [[ $1 == "-s" ]] ; then
     for (( x=1 ; x<=rows ; x++)) ; do
 
         line1=$(head -n$x $old | tail -n1)
-        file=${line1:11}#file name
-        line1=${line1:0:10}#old permissions of the file
+        file=${line1:11} #file name
+        line1=${line1:0:10} #old permissions of the file
         line2=$(head -n$x $changed | tail -n1)
-        line2=${line2:0:10}#current permissions of the file
+        line2=${line2:0:10} #current permissions of the file
 
         #this if statement isn't working for some reason, all comparision are considered true
         if [[ ! line1 == line2 ]] ; then
