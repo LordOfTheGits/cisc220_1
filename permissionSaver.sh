@@ -10,3 +10,4 @@ while [[ -e $fileName || -e $fileName$i ]]; do
 done
 
 ls -l * | awk '{print $1" " $9}' > $fileName
+echo $fileName created
