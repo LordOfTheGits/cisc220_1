@@ -41,9 +41,7 @@ if [[ $1 == '-r' ]]; then
 		fi
 		i=$((i+1))
 	done
-fi
-
-if [[ $1 == "-s" ]] ; then
+elif [[ $1 == "-s" ]] ; then
 
     old=$2
     changed=newFile
@@ -69,4 +67,6 @@ if [[ $1 == "-s" ]] ; then
         fi
 
     done
+else
+	echo invalid argument: $1
 fi
